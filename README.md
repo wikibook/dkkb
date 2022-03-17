@@ -8,15 +8,15 @@
 
 ## 참고 자료
 
-#### Chapter3-02 P.053 STEP4에서 리눅스 커널 업데이트에서 에러가 발생하는 경우
+#### 3장 2절 63쪽, STEP4에서 리눅스 커널 업데이트에서 에러가 발생하는 경우
 
 "wsl_update_x64.msi"를 관리자 권한으로 실행해 보세요.
 
-#### Chapter3-02 P.055에서 Docker Desktop을 시작할 때 오류가 발생하는 경우
+#### 3장 2절 65쪽, Docker Desktop을 시작할 때 오류가 발생하는 경우
 
 Docker Desktop을 관리자 권한으로 실행해 보세요.
 
-#### Chapter5-04에서 Redmine이 시작하지 않는 오류가 발생하는 경우
+#### 5장 4절에서 Redmine이 시작하지 않는 오류가 발생하는 경우
 
 MySQL 컨테이너를 시작한 후 즉시 Redmine 컨테이너를 시작하면 MySQL 컨테이너가 아직 시작되지 않아 Redmine 컨테이너를 시작하지 못할 수 있습니다. 이는 Redmine 컨테이너가 시작될 때 MySQL에 연결할 수 없으면 종료되기 때문입니다. 해결책은 두 가지가 있습니다.
 
@@ -38,7 +38,7 @@ docker start redmine000ex14
 docker logs redmine000ex14
 ~~~
 
-#### Appendix 03 P.306 이후의 Docker 설치에 대해
+#### 부록 03 342쪽, 도커 설치에 대해
 
 최신 도커 설치 방법이 바뀌고 있습니다. P.307의 STEP1 내지 PP309의 STEP6의 부분에 대해서는 다음 페이지를 참조합니다.
 
