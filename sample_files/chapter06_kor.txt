@@ -1,0 +1,106 @@
+■ 6-02：단계 0 아파치 컨테이너를 생성하기
+docker run --name apa000ex19 -d -p 8089:80 httpd
+
+
+■ 6-02：［사전준비］index.html 파일 작성하기
+(chapter06 폴더에 있는 index.html 파일을 참조)
+
+
+■ 6-02：단계 2 'cp' 커맨드로 호스트에서 컨테이너로 파일을 복사하기
+* '사용자명' 부분은 사용 중인 PC의 로그인 환경에 맞춰 수정할 것
+・Windows
+docker cp C:\Users\사용자명\Documents\index.html apa000ex19:/usr/local/apache2/htdocs/
+
+・Mac
+docker cp /Users/사용자명/Documents/index.html apa000ex19:/usr/local/apache2/htdocs/
+
+・Linux
+docker cp /home/사용자명/index.html apa000ex19:/usr/local/apache2/htdocs/
+
+
+
+■ 6-02：단계 1 'cp' 커맨드로 컨테이너에서 호스트로 파일을 복사하기
+・Windows
+docker cp apa000ex19:/usr/local/apache2/htdocs/index.html C:\Users\사용자명\Documents\
+
+・Mac
+docker cp apa000ex19:/usr/local/apache2/htdocs/index.html /Users/사용자명/Documents/
+
+・Linux
+docker cp apa000ex19:/usr/local/apache2/htdocs/index.html /home/사용자명/
+
+
+
+■ 6-03：스토리지를 마운트하는 커맨드  단계 2 'run' 커맨드로 아파치 컨테이너 실행하기
+・Windows
+docker run --name apa000ex20 -d -p 8090:80 -v C:\Users\사용자명\Documents\apa_folder:/usr/local/apache2/htdocs httpd
+
+
+・Mac
+docker run --name apa000ex20 -d -p 8090:80 -v /Users/ 사용자명/Documents/apa_folder:/usr/local/apache2/htdocs httpd
+
+・Linux
+docker run --name apa000ex20 -d -p 8090:80 -v /home/사용자명/apa_folder:/usr/local/apache2/htdocs httpd
+
+
+
+■ 6-03： [실습] <응용편> 볼륨 마운트 해보기  단계 1  마운트할 볼륨 생성하기
+docker volume create apa000vol1
+
+
+
+■ 6-03：단계 2 'run' 커맨드로 아파치 컨테이너 실행하기
+docker run --name apa000ex21 -d -p 8091:80 -v apa000vol1:/usr/local/apache2/htdocs httpd
+
+
+■ 6-03：단계 3 'volume inspect' 커맨드로 볼륨의 상세정보 확인하기
+・볼륨
+docker volume inspect apa000vol1
+
+・컨테이너
+docker container inspect apa000ex21
+
+
+■ 6-03：단계 4 뒷정리하기
+docker volume rm apa000vol1
+
+
+■ 6-03：칼럼 볼륨 백업하기
+・책의 설정값을 채워 완성한 명령어
+docker run --rm -v apa000vol1:/moto -v C:\Users\사용자명\Documents:/saki busybox tar czvf /saki/backup_apa.tar.gz -C /moto .
+
+
+・자주 사용되는 작성 예(복원)
+docker run --rm -v apa000vol2:/moto -v C:\Users\사용자명\Documents:/saki busybox tar xzvf /saki/backup_apa.tar.gz -C /moto
+
+
+■ 6-04：단계 0 아파치 컨테이너를 준비하기
+docker run --name apa000ex22 -d -p 8092:80 httpd
+
+
+■ 6-04：단계 1 컨테이너를 변환한 새로운 이미지를 생성하기
+docker commit apa000ex22 ex22_original1
+
+
+■ 6-04：단계 2 이미지가 생성되었는지 확인하기
+docker image ls
+
+
+
+■ 6-04： [실습] <응용> Dockerfile로 이미지 빌드하기 단계 2 Dockerfile 스크립트 작성하기
+(chapter06 폴더에 있는 Dockerfile 파일을 참조)
+
+
+■ 6-04：단계 3 'build' 커맨드로 이미지 빌드하기
+・Windows
+docker build -t ex22_original2 C:\Users\사용자명\Documents\apa_folder\
+
+・Mac
+docker build -t ex22_original2 /Users/사용자명/Documents/apa_folder/
+
+・Linux
+docker build -t ex22_original2 /home/사용자명/apa_folder/
+
+
+■ 6-04：단계 4 이미지가 생성되었는지 확인하기
+docker image ls

@@ -1,0 +1,107 @@
+■ 4-02: 단계 1 'version' 커맨드 실행하기
+docker version
+
+■ 4-03: 컨테이너의 목록을 출력하기
+docker ps -a
+
+■ 4-03: 단계 1 'run' 커맨드 실행하기
+docker run --name apa000ex1 -d httpd
+
+■ 4-03: 단계 2 'ps' 커맨드로 컨테이너 실행 상태를 확인하기
+docker ps
+
+■ 4-03: 단계 3 'stop' 커맨드로 컨테이너 정지시키기
+docker stop apa000ex1
+
+■ 4-03: 단계 5 'ps' 커맨드와 인자로 컨테이너의 존재 여부 확인하기
+docker ps -a
+
+■ 4-03: 단계 6 'rm' 커맨드로 'apa000ex1' 컨테이너를 삭제하기
+docker rm apa000ex1
+
+■ 4-03: 단계 7 'ps' 커맨드와 인자로 컨테이너가 삭제되었는지 확인하기
+docker ps -a
+
+■ 4-04: 단계 1 'run' 커맨드 실행하기
+docker run --name apa000ex2 -d -p 8080:80 httpd
+
+■ 4-04: 단계 2 'ps' 커맨드로 컨테이너가 실행 중인지 확인하기
+docker ps
+
+■ 4-04: 단계 4 'stop' 커맨드로 컨테이너 정지시키기
+docker stop apa000ex2
+
+■ 4-04: 단계 5 'rm' 커맨드로 'apa000ex2' 컨테이너를 삭제하기
+docker rm apa000ex2
+
+■ 4-04: 단계 6 'ps' 커맨드와 인자로 컨테이너가 삭제되었는지 확인하기
+docker ps -a
+
+■ 4-05: 단계 1 'run' 커맨드 실행하기
+docker run --name apa000ex3 -d -p 8081:80 httpd
+docker run --name apa000ex4 -d -p 8082:80 httpd
+docker run --name apa000ex5 -d -p 8083:80 httpd
+
+■ 4-05: 단계 2 'ps' 커맨드로 컨테이너가 실행 중인지 확인하기
+docker ps
+
+■ 4-05: 단계 4 'stop' 커맨드로 컨테이너 정지시키기
+docker stop apa000ex3
+docker stop apa000ex4
+docker stop apa000ex5
+
+■ 4-05: 단계 5 'rm' 커맨드로 컨테이너 삭제하기
+docker rm apa000ex3
+docker rm apa000ex4
+docker rm apa000ex5
+
+■ 4-05: 단계 6 'ps' 커맨드와 인자로 컨테이너가 삭제되었는지 확인하기
+docker ps -a
+
+■ 4-05: [실습] nginx 컨테이너를 만들자 단계 1 'run' 커맨드 실행하기
+docker run --name nginx000ex6 -d -p 8084:80 nginx
+
+■ 4-05: 단계 2 'ps' 커맨드로 컨테이너가 실행 중인지 확인하기
+docker ps
+
+■ 4-05: 단계 4 'stop' 커맨드로 컨테이너 정지시키기
+docker stop nginx000ex6
+
+■ 4-05: 단계 5 'rm' 커맨드로 컨테이너 삭제하기
+docker rm nginx000ex6
+
+■ 4-05: 단계 6 'ps' 커맨드와 인자로 컨테이너가 삭제되었는지 확인하기
+docker ps -a
+
+■ 4-05: [실습] MySQL 컨테이너를 만들자 단계 1 'run' 커맨드 실행하기
+docker run --name mysql000ex7 -dit -e MYSQL_ROOT_PASSWORD=myrootpass mysql
+
+■ 4-05: 단계 2 'ps' 커맨드로 컨테이너가 실행 중인지 확인하기
+docker ps
+
+■ 4-05: 단계 3 'stop' 커맨드로 컨테이너 정지시키기
+docker stop mysql000ex7
+
+■ 4-05: 단계 4 'rm' 커맨드로 컨테이너 삭제하기
+docker rm mysql000ex7
+
+■ 4-05: 단계 5 'ps' 커맨드와 인자로 컨테이너가 삭제되었는지 확인하기
+docker ps -a
+
+■ 4-06: 단계 1 'ps' 커맨드로 컨테이너의 존재와 실행 중 여부 확인하기
+docker ps -a
+
+■ 4-06: 단계 2 'image ls' 커맨드로 이미지의 존재 여부 확인하기
+docker image ls
+
+■ 4-06: 단계 3 'image rm' 커맨드로 이미지 삭제하기
+docker image rm httpd
+
+■ 4-06: 단계 4 'image ls' 커맨드로 이미지가 삭제되었는지 확인하기
+docker image ls
+
+■ 4-06: 단계 5 'image rm' 커맨드로 이미지 삭제하기
+docker image rm nginx mysql
+
+■ 4-06: 단계 6 'image ls' 커맨드로 이미지가 삭제되었는지 확인하기
+docker image ls

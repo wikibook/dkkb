@@ -1,0 +1,36 @@
+version: "3"
+services:
+  mysql000ex13:
+    image: mysql:8
+    networks:
+      - redmine000net2
+    volumes:
+      - mysql000vol13:/var/lib/mysql
+    restart: always
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: myrootpass
+      MYSQL_DATABASE: redmine000db
+      MYSQL_USER: redmine000kun
+      MYSQL_PASSWORD: rkunpass
+  redmine000ex14:
+    depends_on:
+      - mysql000ex13
+    image: redmine
+    networks:
+      - redmine000net2
+    volumes:
+      - redmine000vol14:/usr/src/redmine/files
+    ports:
+      - 8086:3000
+    restart: always
+    environment:
+      REDMINE_DB_MYSQL: mysql000ex13
+      REDMINE_DB_DATABASE: redmine000db
+      REDMINE_DB_USERNAME: redmine000kun
+      REDMINE_DB_PASSWORD: rkunpass
+networks:
+  redmine000net2:
+volumes:
+  mysql000vol13:
+  redmine000vol14:

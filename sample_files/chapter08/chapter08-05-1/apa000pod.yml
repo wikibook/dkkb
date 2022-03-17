@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: apa000pod
+  labels:
+    app: apa000kube
+spec:
+  containers:
+    - name: apa000ex91
+      image: httpd
+       ports:
+      - containerPort: 80

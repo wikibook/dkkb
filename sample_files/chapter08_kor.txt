@@ -1,0 +1,101 @@
+■ 8-06：[실습] 매니페스트 파일로 파드 생성하기 (1) - 디플로이먼트
+〇단계 1 디플로이먼트의 매니페스트 파일을 읽어들이기
+・Windows
+kubectl apply -f C:\Users\사용자명\Documents\kube_folder\apa000dep.yml
+
+・Mac
+kubectl apply -f /Users/사용자명/Documents/kube_folder/apa000dep.yml
+
+
+・Linux
+kubectl apply -f /home/사용자명/kube_folder/apa000dep.yml
+
+
+〇단계 2 서비스의 매니페스트 파일을 읽어들이기
+・Windows
+kubectl apply -f C:\Users\사용자명\Documents\kube_folder\apa000ser.yml
+
+・Mac
+kubectl apply -f /Users/사용자명/Documents/kube_folder/apa000ser.yml
+
+・Linux
+kubectl apply -f /home/사용자명/kube_folder/apa000ser.yml
+
+
+■ 8-07：단계 1 디플로이먼트의 매니페스트 파일을 수정하기
+(chapter08 폴더의 chapter08-07\apa000dep.yml 파일을 참조)
+
+
+■ 8-07： [실습] 매니페스트 파일로 파드의 개수를 늘리기
+〇단계 2 디플로이먼트의 매니페스트 파일을 읽어 들이기
+
+・Windows
+kubectl apply -f C:\Users\사용자명\Documents\kube_folder\apa000dep.yml
+
+・Mac
+kubectl apply -f /Users/사용자명/Documents/kube_folder/apa000dep.yml
+
+
+・Linux
+kubectl apply -f /home/사용자명/kube_folder/apa000dep.yml
+
+
+
+〇단계 3 파드의 수가 늘어났는지 확인하기
+kubectl get pods
+
+
+
+■ 8-07：［手順］定義ファイルでApache をnginx に変える
+〇단계 2 デプロイメントの定義ファイルを読み込ませ反映させる
+・Windows
+kubectl apply -f C:\Users\사용자명\Documents\kube_folder\apa000dep.yml
+
+・Mac
+kubectl apply -f /Users/사용자명/Documents/kube_folder/apa000dep.yml
+
+
+・Linux
+kubectl apply -f /home/사용자명/kube_folder/apa000dep.yml
+
+
+
+■ 8-07： [실습] 수동으로 파드를 삭제한 후 자동복구되는지 확인하기
+〇단계 1 get 커맨드로 파드의 목록을 확인하기
+kubectl get pods
+
+
+〇단계 2 수동으로 delete 커맨드를 실행해 파드를 하나 삭제하기
+* 컨테이너 ID는 단계 1에서 출력된 것 중 하나를 입력한다
+kubectl delete pod コンテナのID
+
+
+〇단계 3 삭제된 파드가 다시 보충되는지 확인하기
+kubectl get pods
+
+
+■ 8-07： [실습] 생성했던 디플로이먼트와 서비스를 삭제하기
+〇단계 1 delete 커맨드로 디플로이먼트 삭제하기
+・Windows
+kubectl delete -f C:\Users\사용자명\Documents\kube_folder\apa000dep.yml
+
+・Mac
+kubectl delete -f /Users/사용자명/Documents/kube_folder/apa000dep.yml
+
+・Linux
+kubectl delete -f /home/사용자명/kube_folder/apa000dep.yml
+
+
+〇단계 2 디플로이먼트가 삭제되었는지 확인하기
+kubectl get deployment
+
+
+〇단계 3 delete 커맨드로 서비스 삭제하기
+・Windows
+kubectl delete -f C:\Users\사용자명\Documents\kube_folder\apa000ser.yml
+
+・Mac
+kubectl delete -f /Users/사용자명/Documents/kube_folder/apa000ser.yml
+
+・Linux
+kubectl delete -f /home/사용자명/kube_folder/apa000ser.yml

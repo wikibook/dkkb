@@ -1,0 +1,36 @@
+version: "3"
+services:
+  maria000ex17:
+    image: mariadb
+    networks:
+      - wordpress000net4
+    volumes:
+      - maria000vol17:/var/lib/mysql
+    restart: always
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --defaultauthentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: myrootpass
+      MYSQL_DATABASE: wordpress000db
+      MYSQL_USER: wordpress000kun
+      MYSQL_PASSWORD: wkunpass
+  wordpress000ex18:
+    depends_on:
+      - maria000ex17
+    image: wordpress
+    networks:
+      - wordpress000net4
+    volumes:
+      - wordpress000vol18:/var/www/html
+    ports:
+      - 8088:80
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: maria000ex17
+      WORDPRESS_DB_NAME: wordpress000db
+      WORDPRESS_DB_USER: wordpress000kun
+      WORDPRESS_DB_PASSWORD: wkunpass
+networks:
+  wordpress000net4:
+volumes:
+  maria000vol17:
+  wordpress000vol18:
